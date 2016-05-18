@@ -1,4 +1,4 @@
-package example.nosql;
+package wasdev.sample.servlet;
 
 import java.util.Map.Entry;
 import java.util.Set;
