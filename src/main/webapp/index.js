@@ -42,6 +42,26 @@ function xhrGet(url, callback, errback){
 	xhr.ontimeout = errback;
 	xhr.send();
 }
+
+function xhrAttach(url, data, callback, errback)
+{
+	var xhr = new createXHR();
+	xhr.open("POST", url, true);
+	//xhr.setRequestHeader("Content-type", "multipart/form-data");
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4){
+			if(xhr.status == 200){
+				callback(parseJson(xhr.responseText));
+			}else{
+				errback("Error: "+xhr.responseText);
+			}
+		}
+	};
+	xhr.timeout = 1000000;
+	xhr.ontimeout = errback;
+	xhr.send(data);
+}
+
 function parseJson(str){
 	return window.JSON ? JSON.parse(str) : eval('(' + str + ')');
 }
