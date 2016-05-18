@@ -1,0 +1,8 @@
+applications:
+- path: target/JavaHelloWorldApp.war
+  memory: 512M
+  instances: 1
+  domain: stage1.mybluemix.net
+  name: java-raw-app-sky
+  host: java-raw-app-sky
+  disk_quota: 1024M
