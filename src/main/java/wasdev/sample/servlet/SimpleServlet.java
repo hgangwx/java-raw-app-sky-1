@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 /**
  * Servlet implementation class SimpleServlet
@@ -23,5 +24,31 @@ public class SimpleServlet extends HttpServlet {
         response.setContentType("text/html");
         response.getWriter().print("Hello World!");
     }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		Part part = request.getPart("file");
+
+		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		String value = request.getParameter("value");
+		String fileName = request.getParameter("filename");
+
+		Database db = null;
+		try {
+			db = CloudantClientMgr.getDB();
+		} catch (Exception re) {
+			re.printStackTrace();
+			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+			return;
+		}
+
+		ResourceServlet servlet = new ResourceServlet();
+
+		JsonObject resultObject = servlet.create(db, id, name, value, part, fileName);
+
+		System.out.println("Upload completed.");
+
+		response.getWriter().println(resultObject.toString());
+	}
 
 }
