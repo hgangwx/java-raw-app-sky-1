@@ -62,6 +62,48 @@ function xhrAttach(url, data, callback, errback)
 	xhr.send(data);
 }
 
+function uploadFile(node)
+{
+	
+	var file = node.previousSibling.files[0];
+	//if file not selected, throw error
+	if(!file)
+	{
+		alert("File not selected for upload... \t\t\t\t \n\n - Choose a file to upload. \n - Then click on Upload button.");
+		return;
+	}
+	
+	var row = node.parentNode.parentNode;
+	
+	var form = new FormData();
+	form.append("file", file);
+	
+	var id = row.getAttribute('data-id');
+
+	var queryParams = (id == null) ? "" : "id=" + id;
+	queryParams+= "&name="+row.firstChild.firstChild.value;
+	queryParams+="&value="+row.firstChild.nextSibling.firstChild.firstChild.firstChild.firstChild.firstChild.value;
+	queryParams+= "&filename="+file.name;
+	
+	//var table = row.firstChild.nextSibling.firstChild;	
+	//var newRow = addNewRow(table);	
+	
+	//startProgressIndicator(newRow);
+	
+	xhrAttach("/attach?"+queryParams, form, function(item){
+		console.log('attached: ', item);
+		//row.setAttribute('data-id', item.id);
+		//removeProgressIndicator(row);
+		//setRowContent(item, row);
+	}, function(err){
+		console.log(err);
+		//stop showing loading message
+		//stopLoadingMessage();
+		//document.getElementById('errorDiv').innerHTML = err;
+	});
+	
+}
+
 function parseJson(str){
 	return window.JSON ? JSON.parse(str) : eval('(' + str + ')');
 }
