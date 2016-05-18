@@ -6,3 +6,5 @@ applications:
   name: java-raw-app-sky
   host: java-raw-app-sky
   disk_quota: 1024M
+    services:
+  - java-web-starter-sky-cloudantNoSQLDB
