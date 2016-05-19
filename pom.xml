@@ -34,6 +34,16 @@
                 <version>1.0</version>
             </dependency>
         </dependencies>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        <version>3.0.1</version>
+</dependency>
     </dependencyManagement>
 
     <dependencies>
@@ -41,6 +51,11 @@
             <groupId>org.apache.geronimo.specs</groupId>
             <artifactId>geronimo-servlet_3.0_spec</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.cloudant</groupId>
+            <artifactId>cloudant-client</artifactId>
+            <version>2.0.0</version>
         </dependency>
     </dependencies>
 
