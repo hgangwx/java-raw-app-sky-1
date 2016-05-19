@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import javax.servlet.annotation.MultipartConfig;
+
+import com.cloudant.client.api.Database;
+import com.google.gson.JsonObject;
 
 /**
  * Servlet implementation class SimpleServlet
