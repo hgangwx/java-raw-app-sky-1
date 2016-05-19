@@ -23,6 +23,9 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="src/cloudant-client-2.0.0.jar"/>
+	<classpathentry kind="lib" path="src/main/cloudant-client-2.0.0.jar"/>
+	<classpathentry kind="lib" path="src/main/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="src/main/com.ibm.ws.javaee.jaxrs.1.1_1.0.1.jar"/>
+	<classpathentry kind="lib" path="src/main/javax.servlet_3.0.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
