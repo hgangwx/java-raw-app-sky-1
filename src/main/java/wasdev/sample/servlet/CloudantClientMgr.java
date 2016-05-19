@@ -3,14 +3,14 @@ package wasdev.sample.servlet;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import cloudant.client.api.ClientBuilder;
-import cloudant.client.api.CloudantClient;
-import cloudant.client.api.Database;
-import cloudant.client.org.lightcouch.CouchDbException;
-import google.gson.JsonArray;
-import google.gson.JsonElement;
-import google.gson.JsonObject;
-import google.gson.JsonParser;
+import com.cloudant.client.api.ClientBuilder;
+import com.cloudant.client.api.CloudantClient;
+import com.cloudant.client.api.Database;
+import com.cloudant.client.org.lightcouch.CouchDbException;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class CloudantClientMgr {
 
